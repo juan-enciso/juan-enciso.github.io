@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Enciso Amate — Desarrollador web freelance en Barcelona</title>
+  <meta name="description" content="Desarrollador web freelance en Barcelona. Diseño, programo y despliego aplicaciones web a medida, de la idea a producción." />
+
+  <!-- Open Graph (para cuando compartas el enlace) -->
+  <meta property="og:title" content="Juan Enciso Amate — Desarrollador web freelance" />
+  <meta property="og:description" content="Aplicaciones web a medida, de la idea al despliegue. Barcelona." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --ink:#16201a;
+      --ink-soft:#3b453e;
+      --muted:#68706a;
+      --paper:#f4f5f1;
+      --panel:#ffffff;
+      --panel-2:#eef0ea;
+      --line:#dce0d7;
+      --green:#177a4b;
+      --green-deep:#0f5a37;
+      --green-bright:#25a869;
+      --focus:#177a4b;
+      --maxw:1120px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+      *{animation:none !important; transition:none !important;}
+    }
+
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:"Hanken Grotesk", system-ui, -apple-system, sans-serif;
+      font-size:1.0625rem;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit;}
+    img{max-width:100%;display:block;}
+
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem);}
+
+    /* ---------- Header ---------- */
+    header{
+      position:sticky;top:0;z-index:20;
+      background:color-mix(in srgb, var(--paper) 88%, transparent);
+      backdrop-filter:saturate(1.2) blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      height:66px;
+    }
+    .brand{
+      font-family:"Space Grotesk", sans-serif;
+      font-weight:600;letter-spacing:-0.01em;
+      font-size:1.05rem;text-decoration:none;color:var(--ink);
+      display:inline-flex;align-items:center;gap:.55rem;
+    }
+    .brand .dot{
+      width:9px;height:9px;border-radius:50%;background:var(--green-bright);
+      box-shadow:0 0 0 3px color-mix(in srgb,var(--green-bright) 22%, transparent);
+    }
+    .nav-links{display:flex;gap:1.9rem;align-items:center;}
+    .nav-links a{
+      text-decoration:none;color:var(--ink-soft);font-weight:500;font-size:.96rem;
+      position:relative;padding:.15rem 0;
+    }
+    .nav-links a:hover{color:var(--ink);}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
+      background:var(--green);transition:width .18s ease;
+    }
+    .nav-links a:hover::after{width:100%;}
+    .nav-cta{
+      text-decoration:none;font-weight:600;font-size:.95rem;
+      padding:.5rem .95rem;border-radius:999px;
+      background:var(--ink);color:var(--paper);
+    }
+    .nav-cta:hover{background:var(--green-deep);}
+    @media (max-width:760px){
+      .nav-links{display:none;}
+    }
+
+    /* ---------- Hero ---------- */
+    .hero{padding:clamp(3.5rem,9vw,6.5rem) 0 clamp(2.5rem,6vw,4rem);}
+    .status{
+      display:inline-flex;align-items:center;gap:.55rem;
+      font-size:.9rem;color:var(--green-deep);font-weight:600;
+      background:color-mix(in srgb,var(--green-bright) 14%, var(--paper));
+      border:1px solid color-mix(in srgb,var(--green) 30%, transparent);
+      padding:.35rem .8rem;border-radius:999px;
+    }
+    .status .pulse{
+      width:8px;height:8px;border-radius:50%;background:var(--green-bright);
+      position:relative;
+    }
+    .status .pulse::after{
+      content:"";position:absolute;inset:0;border-radius:50%;
+      background:var(--green-bright);animation:pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:.7;}
+      70%,100%{transform:scale(3.2);opacity:0;}
+    }
+    h1{
+      font-family:"Space Grotesk", sans-serif;
+      font-weight:700;
+      font-size:clamp(2.4rem,6.4vw,4.4rem);
+      line-height:1.02;
+      letter-spacing:-0.03em;
+      margin:1.4rem 0 0;
+      max-width:14ch;
+    }
+    h1 .field{
+      display:inline-block;position:relative;
+    }
+    h1 .field::after{
+      content:"";position:absolute;left:0;right:0;bottom:.06em;height:.16em;
+      background:color-mix(in srgb,var(--green-bright) 55%, transparent);
+      z-index:-1;border-radius:2px;
+    }
+    .lede{
+      margin-top:1.6rem;max-width:56ch;
+      font-size:clamp(1.05rem,2.2vw,1.22rem);color:var(--ink-soft);
+    }
+    .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem;}
+    .btn{
+      text-decoration:none;font-weight:600;font-size:1rem;
+      padding:.8rem 1.4rem;border-radius:10px;display:inline-flex;align-items:center;gap:.5rem;
+      transition:transform .12s ease, background .18s ease, border-color .18s ease;
+    }
+    .btn-primary{background:var(--green);color:#fff;}
+    .btn-primary:hover{background:var(--green-deep);transform:translateY(-1px);}
+    .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+    .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px);}
+
+    .hero-meta{
+      margin-top:3rem;display:flex;flex-wrap:wrap;gap:2.2rem;
+      border-top:1px solid var(--line);padding-top:1.6rem;
+    }
+    .hero-meta div{min-width:120px;}
+    .hero-meta .k{
+      font-family:"Space Grotesk",sans-serif;font-weight:600;
+      font-size:1.5rem;color:var(--ink);letter-spacing:-0.02em;
+    }
+    .hero-meta .v{font-size:.9rem;color:var(--muted);margin-top:.15rem;}
+
+    /* ---------- Section shell ---------- */
+    section.block{padding:clamp(3.2rem,7vw,5.5rem) 0;border-top:1px solid var(--line);}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:.6rem;
+      font-weight:600;font-size:.95rem;color:var(--green-deep);margin-bottom:1rem;
+    }
+    .eyebrow::before{content:"";width:22px;height:2px;background:var(--green);display:inline-block;}
+    h2{
+      font-family:"Space Grotesk",sans-serif;font-weight:600;
+      font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:-0.025em;
+      margin:0 0 .6rem;line-height:1.1;
+    }
+    .section-intro{color:var(--ink-soft);max-width:60ch;margin:0 0 2.4rem;}
+
+    /* ---------- About ---------- */
+    .about-grid{display:grid;grid-template-columns:1fr;gap:1.4rem;max-width:70ch;}
+    .about-grid p{margin:0;color:var(--ink-soft);}
+    .about-grid p strong{color:var(--ink);font-weight:600;}
+
+    /* ---------- Services ---------- */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
+    .svc{
+      background:var(--panel);border:1px solid var(--line);border-radius:14px;
+      padding:1.5rem 1.4rem;
+    }
+    .svc h3{
+      font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.15rem;
+      margin:.2rem 0 .5rem;letter-spacing:-0.01em;
+    }
+    .svc p{margin:0;color:var(--muted);font-size:.98rem;}
+    .svc .num{
+      font-family:"Space Grotesk",sans-serif;color:var(--green);font-weight:600;
+      font-size:.9rem;
+    }
+
+    /* ---------- Projects ---------- */
+    .projects{display:grid;gap:1.1rem;}
+    .project{
+      background:var(--panel);border:1px solid var(--line);border-radius:16px;
+      padding:1.7rem 1.6rem;border-left:4px solid var(--green);
+      display:grid;grid-template-columns:1fr auto;gap:1rem 1.5rem;align-items:start;
+    }
+    .project h3{
+      font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.35rem;
+      margin:0 0 .4rem;letter-spacing:-0.015em;
+    }
+    .project .tag{
+      font-size:.82rem;color:var(--green-deep);font-weight:600;
+      background:color-mix(in srgb,var(--green-bright) 12%, var(--paper));
+      padding:.2rem .6rem;border-radius:6px;display:inline-block;margin-bottom:.7rem;
+    }
+    .project p{margin:0;color:var(--ink-soft);max-width:62ch;}
+    .stack{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem;}
+    .stack span{
+      font-size:.8rem;color:var(--muted);border:1px solid var(--line);
+      border-radius:6px;padding:.15rem .55rem;
+    }
+    .project-links{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;}
+    .project-links a{
+      text-decoration:none;font-weight:600;font-size:.92rem;color:var(--green-deep);
+      white-space:nowrap;
+    }
+    .project-links a:hover{text-decoration:underline;}
+    @media (max-width:620px){
+      .project{grid-template-columns:1fr;}
+      .project-links{flex-direction:row;align-items:center;}
+    }
+
+    /* ---------- Timeline ---------- */
+    .timeline{border-left:2px solid var(--line);margin-left:.4rem;padding-left:1.6rem;display:grid;gap:1.8rem;max-width:64ch;}
+    .tl{position:relative;}
+    .tl::before{
+      content:"";position:absolute;left:calc(-1.6rem - 6px);top:.35rem;
+      width:11px;height:11px;border-radius:50%;background:var(--green);
+      box-shadow:0 0 0 4px var(--paper);
+    }
+    .tl .yr{font-family:"Space Grotesk",sans-serif;font-weight:600;color:var(--green-deep);font-size:.9rem;}
+    .tl h3{margin:.15rem 0 .3rem;font-size:1.12rem;font-family:"Space Grotesk",sans-serif;font-weight:600;letter-spacing:-0.01em;}
+    .tl p{margin:0;color:var(--muted);font-size:.97rem;}
+
+    .awards{
+      margin-top:2.4rem;background:var(--panel);border:1px dashed var(--line);
+      border-radius:14px;padding:1.4rem 1.5rem;max-width:64ch;
+    }
+    .awards h3{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:1.1rem;margin:0 0 .5rem;}
+    .awards ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--ink-soft);}
+    .awards li{margin:.3rem 0;}
+
+    /* ---------- Contact ---------- */
+    .contact{
+      background:var(--ink);color:var(--paper);border-radius:22px;
+      padding:clamp(2.2rem,5vw,3.4rem);
+      display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;
+    }
+    .contact h2{color:#fff;}
+    .contact p{color:color-mix(in srgb,var(--paper) 78%, transparent);max-width:46ch;margin:.4rem 0 0;}
+    .contact-actions{display:grid;gap:.7rem;}
+    .contact-actions a{
+      text-decoration:none;font-weight:600;padding:.9rem 1.2rem;border-radius:12px;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      border:1px solid color-mix(in srgb,var(--paper) 22%, transparent);
+      color:var(--paper);transition:background .16s ease, border-color .16s ease;
+    }
+    .contact-actions a:hover{background:color-mix(in srgb,var(--paper) 10%, transparent);border-color:var(--green-bright);}
+    .contact-actions a.primary{background:var(--green);border-color:var(--green);color:#fff;}
+    .contact-actions a.primary:hover{background:var(--green-bright);}
+    .contact-actions .small{font-size:.82rem;color:color-mix(in srgb,var(--paper) 60%, transparent);font-weight:500;}
+    @media (max-width:720px){.contact{grid-template-columns:1fr;}}
+
+    /* ---------- Footer ---------- */
+    footer{padding:2.4rem 0 3rem;color:var(--muted);font-size:.9rem;text-align:center;border-top:1px solid var(--line);margin-top:0;}
+    footer a{color:var(--ink-soft);text-decoration:none;}
+    footer a:hover{color:var(--green-deep);}
+
+    /* focus visibility */
+    a:focus-visible,.btn:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px;}
+
+    /* hero entrance (respeta reduce-motion vía regla de arriba) */
+    .reveal{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;}
+    .reveal.d1{animation-delay:.06s;}
+    .reveal.d2{animation-delay:.14s;}
+    .reveal.d3{animation-delay:.22s;}
+    .reveal.d4{animation-delay:.3s;}
+    @keyframes rise{to{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top"><span class="dot"></span>Juan Enciso Amate</a>
+      <nav class="nav-links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#trayectoria">Trayectoria</a>
+      </nav>
+      <a class="nav-cta" href="#contacto">Hablemos</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="status reveal"><span class="pulse"></span>Disponible para nuevos proyectos</span>
+        <h1 class="reveal d1">Construyo <span class="field">aplicaciones web</span> a medida.</h1>
+        <p class="lede reveal d2">Soy Juan Enciso Amate, desarrollador freelance en Barcelona. Diseño, programo y pongo en marcha productos digitales hechos para tu caso concreto, de la primera idea al despliegue final.</p>
+        <div class="cta-row reveal d3">
+          <a class="btn btn-primary" href="#contacto">Cuéntame tu proyecto</a>
+          <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+        </div>
+        <div class="hero-meta reveal d4">
+          <div><div class="k">Full-stack</div><div class="v">Frontend, backend y despliegue</div></div>
+          <div><div class="k">1 persona</div><div class="v">Hablas directamente conmigo</div></div>
+          <div><div class="k">Barcelona</div><div class="v">Presencial o en remoto</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="block" id="sobre-mi">
+      <div class="wrap">
+        <span class="eyebrow">Sobre mí</span>
+        <h2>Una sola persona, de principio a fin.</h2>
+        <div class="about-grid">
+          <p>Estudio <strong>Ingeniería Informática en la UPC (Facultat d'Informàtica de Barcelona)</strong> y llevo años convirtiendo ideas en software que funciona. Trabajo solo y de forma directa: hablas conmigo, no con un intermediario, y sé exactamente qué hay detrás de cada línea de código de tu proyecto.</p>
+          <p>Fuera del código soy <strong>árbitro federado de fútbol</strong> por la Federació Catalana de Futbol. Suena lejano, pero arbitrar enseña lo mismo que valoro programando: decidir rápido, con criterio y sin perder la calma cuando algo se complica.</p>
+          <p>Si buscas a alguien que entienda tu problema, construya la solución completa y te la deje funcionando, ese soy yo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="block" id="servicios">
+      <div class="wrap">
+        <span class="eyebrow">Servicios</span>
+        <h2>En qué puedo ayudarte.</h2>
+        <p class="section-intro">Me encargo del producto entero. Estos son los encargos con los que trabajo más a menudo.</p>
+        <div class="services">
+          <div class="svc">
+            <span class="num">01</span>
+            <h3>Aplicaciones a medida</h3>
+            <p>Webs y apps construidas para tu caso concreto, desde el primer boceto hasta que están en producción. Nada de plantillas genéricas.</p>
+          </div>
+          <div class="svc">
+            <span class="num">02</span>
+            <h3>Desarrollo full-stack</h3>
+            <p>Frontend, backend y base de datos. Me ocupo del conjunto con React, Node y las herramientas que mejor encajen con el proyecto.</p>
+          </div>
+          <div class="svc">
+            <span class="num">03</span>
+            <h3>Puesta en marcha</h3>
+            <p>No entrego un zip y desaparezco. Dejo el proyecto desplegado, funcionando y listo para que lo uses y para que crezca.</p>
+          </div>
+          <div class="svc">
+            <span class="num">04</span>
+            <h3>Trabajo cercano</h3>
+            <p>Iteraciones claras, comunicación directa y acompañamiento después de la entrega. Sabes en todo momento cómo va.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="block" id="proyectos">
+      <div class="wrap">
+        <span class="eyebrow">Proyectos</span>
+        <h2>Algo de lo que he construido.</h2>
+        <p class="section-intro">Proyectos reales, de la idea al código funcionando. Cada uno cuenta qué problema resuelve.</p>
+        <div class="projects">
+
+          <article class="project">
+            <div>
+              <span class="tag">Aplicación full-stack</span>
+              <h3>FutTrainer</h3>
+              <p>Aplicación completa para entrenadores de fútbol: ayuda a planificar, organizar y gestionar el trabajo del equipo desde un solo sitio. Un proyecto en el que uní mi lado técnico con lo que conozco del fútbol de primera mano.</p>
+              <div class="stack"><span>React</span><span>Node</span><span>Express</span></div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/juan-enciso" target="_blank" rel="noopener">Código en GitHub</a>
+              <!-- Cambia por la demo si la tienes -->
+              <a href="#contacto">Ver demo</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <span class="tag">Aplicación full-stack</span>
+              <h3>Lumo</h3>
+              <p>Coach de hábitos conversacional: ayuda a crear y mantener buenos hábitos a través de una conversación natural, en lugar de otra lista de tareas más. Frontend, backend y lógica de conversación, todo integrado.</p>
+              <div class="stack"><span>React</span><span>Node</span><span>API IA</span></div>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/juan-enciso" target="_blank" rel="noopener">Código en GitHub</a>
+              <a href="#contacto">Ver demo</a>
+            </div>
+          </article>
+
+          <!-- Duplica este bloque para añadir más proyectos -->
+          <article class="project">
+            <div>
+              <span class="tag">Tu próximo proyecto</span>
+              <h3>¿Añadimos el tuyo?</h3>
+              <p>Este hueco está reservado para el siguiente proyecto. Si tienes una idea, hablemos y la construimos.</p>
+            </div>
+            <div class="project-links">
+              <a href="#contacto">Empezar</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAYECTORIA -->
+    <section class="block" id="trayectoria">
+      <div class="wrap">
+        <span class="eyebrow">Trayectoria</span>
+        <h2>Formación y experiencia.</h2>
+        <div class="timeline">
+          <div class="tl">
+            <div class="yr">En curso</div>
+            <h3>Grado en Ingeniería Informática — UPC (FIB)</h3>
+            <p>Facultat d'Informàtica de Barcelona. Base sólida en algoritmia, estructuras de datos y desarrollo de software.</p>
+          </div>
+          <div class="tl">
+            <div class="yr">Actualidad</div>
+            <h3>Desarrollador freelance</h3>
+            <p>Aplicaciones web a medida para clientes, del diseño al despliegue.</p>
+          </div>
+          <div class="tl">
+            <div class="yr">Actualidad</div>
+            <h3>Árbitro federado — Federació Catalana de Futbol</h3>
+            <p>Arbitraje de partidos con licencia federativa. Decisión bajo presión, criterio y trabajo en equipo.</p>
+          </div>
+          <div class="tl">
+            <div class="yr">Experiencia previa</div>
+            <h3>Otros roles</h3>
+            <p>Entrenador de fútbol, profesor particular y comisario de pista en el Circuit de Barcelona-Catalunya.</p>
+          </div>
+        </div>
+
+        <div class="awards">
+          <h3>Premios y reconocimientos</h3>
+          <ul>
+            <li>Añade aquí tus premios, certificaciones o reconocimientos.</li>
+            <li>Ejemplo: certificación, mención o logro académico o deportivo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="block" id="contacto">
+      <div class="wrap">
+        <div class="contact">
+          <div>
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Cuéntame qué necesitas y te digo cómo lo abordaría, sin compromiso. Suelo responder en un día.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="primary" href="mailto:tu@email.com">
+              <span>Escríbeme un email</span>
+              <span class="small">tu@email.com</span>
+            </a>
+            <a href="https://github.com/juan-enciso" target="_blank" rel="noopener">
+              <span>GitHub</span>
+              <span class="small">@juan-enciso</span>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+              <span>LinkedIn</span>
+              <span class="small">añade tu perfil</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Juan Enciso Amate · Barcelona · Hecho a mano con HTML y CSS
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
