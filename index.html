@@ -101,6 +101,7 @@
       font-size:clamp(2rem,4.6vw,3.1rem);line-height:1.08;letter-spacing:-0.02em;
       margin:0;color:var(--text-hi);
     }
+    .tagline{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:clamp(1.05rem,2.6vw,1.65rem);color:var(--accent);margin:.7rem 0 0;letter-spacing:-0.01em;}
     .lede{margin-top:1.4rem;max-width:48ch;color:var(--muted);font-size:1.08rem;}
     .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem;}
     .btn{
@@ -186,6 +187,7 @@
       font-family:"JetBrains Mono",monospace;font-size:.82rem;color:var(--muted);
     }
     .project .phead .fname b{color:var(--prop);font-weight:400;}
+    .project .phead .badge{margin-left:auto;color:var(--num);font-size:.75rem;border:1px solid var(--line-2);border-radius:6px;padding:.12rem .5rem;}
     .project .pbody{padding:1.3rem 1.4rem;display:grid;grid-template-columns:1fr auto;gap:1rem 1.5rem;}
     @media (max-width:620px){.project .pbody{grid-template-columns:1fr;}}
     .project h3{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:1.25rem;color:var(--text-hi);margin:0 0 .5rem;}
@@ -223,7 +225,10 @@
     }
     .awards .c{font-family:"JetBrains Mono",monospace;color:var(--com);font-size:.85rem;margin-bottom:.6rem;}
     .awards ul{margin:0;padding-left:1.1rem;color:var(--text);}
-    .awards li{margin:.3rem 0;}
+    .awards li{margin:.5rem 0;line-height:1.55;}
+    .awards strong{color:var(--text-hi);font-weight:600;}
+    .awards a{color:var(--accent);text-decoration:none;}
+    .awards a:hover{color:var(--accent-2);text-decoration:underline;}
 
     /* contact — terminal */
     .terminal{
@@ -276,11 +281,11 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">// estado: <b>disponible para nuevos proyectos</b></p>
-          <h1>Construyo y despliego aplicaciones web a medida.</h1>
-          <p class="lede">Soy Juan Enciso Amate, desarrollador freelance en Barcelona. Del primer boceto al deploy, me encargo del producto entero. Una sola persona, sin intermediarios.</p>
+          <h1>Juan Enciso Amate</h1>
+          <p class="tagline">Aplicaciones, software y diseño</p>
+          <p class="lede">Me explicas lo que necesitas y me encargo de hacerlo posible. Una sola persona, sin intermediarios.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#contacto">Cuéntame tu proyecto</a>
+            <a class="btn btn-primary" href="mailto:jhonnypeligro49@gmail.com">Cuéntame tu proyecto</a>
             <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
           </div>
         </div>
@@ -291,12 +296,11 @@
             <span class="tab"><b>juan</b>.js</span>
           </div>
           <div class="code">
-            <div class="gutter">1<br>2<br>3<br>4<br>5<br>6<br>7</div>
+            <div class="gutter">1<br>2<br>3<br>4<br>5<br>6</div>
             <div class="lines">
 <div><span class="tok-kw">const</span> <span class="tok-prop">juan</span> <span class="tok-punc">=</span> <span class="tok-punc">{</span></div>
 <div>  <span class="tok-prop">nombre</span><span class="tok-punc">:</span> <span class="tok-str">"Juan Enciso Amate"</span><span class="tok-punc">,</span></div>
 <div>  <span class="tok-prop">rol</span><span class="tok-punc">:</span> <span class="tok-str">"desarrollador y diseñador"</span><span class="tok-punc">,</span></div>
-<div>  <span class="tok-prop">base</span><span class="tok-punc">:</span> <span class="tok-str">"Barcelona"</span><span class="tok-punc">,</span></div>
 <div>  <span class="tok-prop">hace</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"webs"</span><span class="tok-punc">,</span> <span class="tok-str">"apps"</span><span class="tok-punc">,</span> <span class="tok-str">"software"</span><span class="tok-punc">,</span> <span class="tok-str">"diseño"</span><span class="tok-punc">],</span></div>
 <div>  <span class="tok-prop">disponible</span><span class="tok-punc">:</span> <span class="tok-num">true</span></div>
 <div><span class="tok-punc">};</span><span class="cursor"></span></div>
@@ -363,6 +367,16 @@
         <div class="projects">
 
           <article class="project">
+            <div class="phead"><span class="fname"><b>sistema-trafico</b>/</span><span class="badge">★ Premio UPC 2024</span></div>
+            <div class="pbody">
+              <div>
+                <h3>Sistema inteligente de gestión de tráfico</h3>
+                <p>Sistema que integra sensores y algoritmos para detectar y gestionar el tráfico de vehículos en tiempo real. Fue mi trabajo de investigación de bachillerato y ganó el Premio UPC de Arquitectura, Ingeniería, Ciencias y Tecnología (25.ª edición, 2024).</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
             <div class="phead"><span class="fname"><b>futtrainer</b>/</span></div>
             <div class="pbody">
               <div>
@@ -373,10 +387,6 @@
                   <span><i style="background:#8cc84b"></i>Node</span>
                   <span><i style="background:#e0af68"></i>Express</span>
                 </div>
-              </div>
-              <div class="plinks">
-                <a href="https://github.com/juan-enciso" target="_blank" rel="noopener">código</a>
-                <a href="#contacto">demo</a>
               </div>
             </div>
           </article>
@@ -393,9 +403,15 @@
                   <span><i style="background:#c29bf5"></i>API IA</span>
                 </div>
               </div>
-              <div class="plinks">
-                <a href="https://github.com/juan-enciso" target="_blank" rel="noopener">código</a>
-                <a href="#contacto">demo</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="phead"><span class="fname"><b>generador-examenes</b>/</span></div>
+            <div class="pbody">
+              <div>
+                <h3>Generador de exámenes y fichas</h3>
+                <p>Software que crea exámenes y fichas de ejercicios de forma automática, ahorrando horas de preparación. Pensado para profesores y academias que necesitan generar material a medida de forma rápida.</p>
               </div>
             </div>
           </article>
@@ -408,7 +424,7 @@
                 <p>Este hueco está reservado para el siguiente proyecto. Si tienes una idea, hablemos y la construimos.</p>
               </div>
               <div class="plinks">
-                <a href="#contacto">empezar</a>
+                <a href="mailto:jhonnypeligro49@gmail.com">cuéntame tu proyecto</a>
               </div>
             </div>
           </article>
@@ -438,20 +454,12 @@
               <div class="meta">Aplicaciones web a medida para clientes, del diseño al despliegue.</div>
             </div>
           </div>
-          <div class="commit">
-            <div class="hash">0d2b74a</div>
-            <div>
-              <div class="msg">Otros roles</div>
-              <div class="meta">Entrenador de fútbol, profesor particular y comisario de pista en el Circuit de Barcelona-Catalunya.</div>
-            </div>
-          </div>
         </div>
 
         <div class="awards">
-          <p class="c">// TODO: premios y reconocimientos</p>
+          <p class="c">// premios y reconocimientos</p>
           <ul>
-            <li>Añade aquí tus premios, certificaciones o reconocimientos.</li>
-            <li>Ejemplo: certificación, mención o logro académico o deportivo.</li>
+            <li><strong>2024 — Premio UPC de Arquitectura, Ingeniería, Ciencias y Tecnología (25.ª edición).</strong> Reconocimiento a mi trabajo de investigación de bachillerato: un sistema inteligente que integra sensores y algoritmos para detectar y gestionar el tráfico en tiempo real. <a href="https://www.fib.upc.edu/es/noticias/juan-enciso-alumno-de-la-fib-ganador-de-uno-de-los-premios-upc-para-trabajos-de-investigacion-de-bachillerato" target="_blank" rel="noopener">Ver noticia en la FIB</a></li>
           </ul>
         </div>
       </div>
@@ -470,9 +478,8 @@
             <h2>Hablemos.</h2>
             <div class="line">Cuéntame qué necesitas y te digo cómo lo abordaría, sin compromiso. Suelo responder en un día.</div>
             <div class="term-links">
-              <a class="primary" href="mailto:tu@email.com"><span>Escríbeme un email</span><span class="val">tu@email.com</span></a>
+              <a class="primary" href="mailto:jhonnypeligro49@gmail.com"><span>Escríbeme un email</span><span class="val">jhonnypeligro49@gmail.com</span></a>
               <a href="https://github.com/juan-enciso" target="_blank" rel="noopener"><span>GitHub</span><span class="val">@juan-enciso</span></a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><span>LinkedIn</span><span class="val">añade tu perfil</span></a>
             </div>
           </div>
         </div>
@@ -481,7 +488,7 @@
   </main>
 
   <footer>
-    <div class="wrap mono">© <span id="year"></span> Juan Enciso Amate — Barcelona · build: HTML + CSS, sin frameworks</div>
+    <div class="wrap mono">© <span id="year"></span> Juan Enciso Amate</div>
   </footer>
 
   <script>
